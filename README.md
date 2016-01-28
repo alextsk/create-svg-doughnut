@@ -2,7 +2,7 @@ create-svg-doughnut
 ==============
 [![Build Status](https://travis-ci.org/janjarfalk/create-svg-doughnut.svg?branch=master)](https://travis-ci.org/janjarfalk/create-svg-doughnut)
 
-Create a SVG pie chart from number array.
+Create a SVG doughnut chart from number array.
 
 ## Installation
 ```sh
