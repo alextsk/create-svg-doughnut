@@ -23,5 +23,8 @@
     "babel": "^5.8.21",
     "browserify": "^11.0.1",
     "mocha": "^2.3.2"
+  },
+  "dependencies": {
+    "create-svg-pie": "^1.0.0"
   }
 }
