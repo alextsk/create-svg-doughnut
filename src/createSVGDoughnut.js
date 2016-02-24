@@ -23,9 +23,12 @@ function createSVGDoughnut(data, outerRadius, innerRadius = outerRadius*0.8, pal
     mask.appendChild(rect);
     mask.appendChild(circle);
 
-    [].slice.call(pie.children).forEach((child) => {
-       child.setAttribute('mask', 'url(#hole)');
-    });
+    const childElementCount = pie.childElementCount;
+    for (var i = 0; i < childElementCount; i++) {
+        if (pie.childNodes[i].setAttribute) {
+            pie.childNodes[i].setAttribute('mask', 'url(#hole)');
+        }
+    }
 
     pie.appendChild(defs);
     return pie;

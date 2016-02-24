@@ -32,9 +32,12 @@ function createSVGDoughnut(data, outerRadius, innerRadius, palette) {
         mask.appendChild(rect);
         mask.appendChild(circle);
 
-        [].slice.call(pie.children).forEach(function (child) {
-            child.setAttribute('mask', 'url(#hole)');
-        });
+        var childElementCount = pie.childElementCount;
+        for (var i = 0; i < childElementCount; i++) {
+            if (pie.childNodes[i].setAttribute) {
+                pie.childNodes[i].setAttribute('mask', 'url(#hole)');
+            }
+        }
 
         pie.appendChild(defs);
         return pie;
