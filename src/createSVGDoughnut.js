@@ -7,7 +7,7 @@ function createSVGDoughnut(data, outerRadius, innerRadius = outerRadius*0.8, pal
 
     const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
     const mask = document.createElementNS("http://www.w3.org/2000/svg", "mask");
-    mask.id = "hole";
+    mask.id = "hole" + Math.floor(Math.random()* 10000);// fix, was simply hole
 
     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     circle.setAttribute("cx", outerRadius);
@@ -26,7 +26,7 @@ function createSVGDoughnut(data, outerRadius, innerRadius = outerRadius*0.8, pal
     const childElementCount = pie.childElementCount;
     for (var i = 0; i < childElementCount; i++) {
         if (pie.childNodes[i].setAttribute) {
-            pie.childNodes[i].setAttribute('mask', 'url(#hole)');
+            pie.childNodes[i].setAttribute('mask', `url(#${mask.id})`);// fix, was simply #hole
         }
     }
 
@@ -35,3 +35,4 @@ function createSVGDoughnut(data, outerRadius, innerRadius = outerRadius*0.8, pal
 }
 
 export default createSVGDoughnut;
+
